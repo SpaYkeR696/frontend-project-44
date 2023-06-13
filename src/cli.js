@@ -1,9 +1,6 @@
+/* eslint-disable no-use-before-define */
 import readlineSync from 'readline-sync';
 
-const name = () => {
-  const userName = readlineSync.question('May I have your name? ');
-  // eslint-disable-next-line no-console
-  console.log(`Hello, ${userName}!`);
-};
+export const name = () => getAnswerForQuestion('May I have your name? ');
 
-export default name;
+export const getAnswerForQuestion = (question) => readlineSync.question(`${question}`);
