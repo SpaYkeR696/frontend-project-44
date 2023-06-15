@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import game from '../src/games/game-gcd.js';
 import rules from '../src/index.js';
 import { name } from '../src/cli.js';
