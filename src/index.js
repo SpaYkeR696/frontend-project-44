@@ -16,7 +16,7 @@ export default () => {
   }
 
   function finishWithWin() {
-    console.log(`Congratulation, ${userName}`);
+    console.log(`Congratulation, ${userName}!`);
     reset();
   }
 
