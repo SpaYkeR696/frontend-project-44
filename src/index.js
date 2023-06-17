@@ -11,7 +11,7 @@ export default () => {
   }
 
   function finishWithLose() {
-    console.log(`Let's try again , ${userName}`);
+    console.log(`Let's try again , ${userName}!`);
     reset();
   }
 
