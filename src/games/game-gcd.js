@@ -4,10 +4,10 @@ import randomNum from '../utilities/randomNum.js';
 
 export default (rules) => {
   function next() {
-    const num1 = randomNum(9);
-    const num2 = randomNum(9);
-    const rightAnswer = getGCD(num1, num2);
-    console.log(`Question: ${num1}, ${num2}`);
+    const number1 = randomNum(9);
+    const number2 = randomNum(9);
+    const rightAnswer = getGCD(number1, number2);
+    console.log(`Question: ${number1}, ${number2}`);
     const answers = getAnswerForQuestion('Your answer: ');
 
     rules.check({ rightAnswer, answers }, next);
