@@ -1,6 +1,6 @@
 export default (num) => {
   if (num === 1) return false;
-  if (num % 2 === 0 && num > 2) return false;
+  if (num % 2 === 0) return false;
 
   const s = Math.sqrt(num);
 
