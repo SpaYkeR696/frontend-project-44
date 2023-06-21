@@ -1,8 +1,9 @@
 /* eslint-disable no-shadow */
-import { getAnswerForQuestion } from '../cli.js';
+import rules from '../index.js';
+import { name, getAnswerForQuestion } from '../cli.js';
 import getRandomNum from '../utilities/randomNum.js';
 
-export default (rules) => {
+const greetingProgression = (rules) => {
   function progression(first, base, last) {
     return [...Array(last)].map((_, i) => first + base * i);
   }
@@ -33,3 +34,14 @@ export default (rules) => {
     },
   };
 };
+
+const launch = () => {
+  console.log('Welcome to the Brain Games!');
+  const userName = name();
+  console.log(`Hello, ${userName}!`);
+  const gameRules = rules();
+  gameRules.setUserName(userName);
+  gameRules.reset();
+  greetingProgression(gameRules).start();
+};
+export default launch;

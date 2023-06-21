@@ -1,8 +1,5 @@
 import rules from '../index.js';
-// eslint-disable-next-line import/no-duplicates
-import { getAnswerForQuestion } from '../cli.js';
-// eslint-disable-next-line import/no-duplicates
-import { name } from '../cli.js';
+import { name, getAnswerForQuestion } from '../cli.js';
 import getRandomNum from '../utilities/randomNum.js';
 import prime from '../utilities/prime.js';
 
@@ -25,7 +22,7 @@ const greetingPrime = (rules) => {
   };
 };
 
-const greeting = () => {
+const launch = () => {
   console.log('Welcome to the Brain Games!');
 
   const userName = name();
@@ -35,4 +32,4 @@ const greeting = () => {
   gameRules.reset();
   greetingPrime(gameRules).start();
 };
-export default greeting;
+export default launch;

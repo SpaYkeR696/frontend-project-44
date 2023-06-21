@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
-import greeting from '../src/games/game-prime.js';
+// eslint-disable-next-line import/no-named-as-default, import/no-named-as-default-member
+import launch from '../src/games/game-prime.js';
 
-greeting();
+launch();
