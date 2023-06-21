@@ -1,8 +1,10 @@
 /* eslint-disable indent */
-import { getAnswerForQuestion } from '../cli.js';
+import rules from '../index.js';
+import { name, getAnswerForQuestion } from '../cli.js';
 import getRandomNum from '../utilities/randomNum.js';
 
-export default (rules) => {
+// eslint-disable-next-line no-shadow
+const greetingEven = (rules) => {
     const answer = {
         YES: 'yes',
         NO: 'no',
@@ -24,3 +26,15 @@ export default (rules) => {
         },
       };
 };
+
+const launch = () => {
+  console.log('Welcome to the Brain Games!');
+const userName = name();
+console.log(`Hello, ${userName}!`);
+
+const gameRules = rules();
+gameRules.setUserName(userName);
+gameRules.reset();
+greetingEven(gameRules).start();
+};
+export default launch;
