@@ -11,12 +11,12 @@ export default () => {
   }
 
   function finishWithLose() {
-    console.log(`Let's try again , ${userName}`);
+    console.log(`Let's try again, ${userName}`);
     reset();
   }
 
   function finishWithWin() {
-    console.log(`Congratulation, ${userName}`);
+    console.log(`Congratulations, ${userName}`);
     reset();
   }
 
