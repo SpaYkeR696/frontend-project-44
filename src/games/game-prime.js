@@ -1,8 +1,13 @@
+import rules from '../index.js';
+// eslint-disable-next-line import/no-duplicates
 import { getAnswerForQuestion } from '../cli.js';
+// eslint-disable-next-line import/no-duplicates
+import { name } from '../cli.js';
 import getRandomNum from '../utilities/randomNum.js';
 import prime from '../utilities/prime.js';
 
-export default (rules) => {
+// eslint-disable-next-line no-shadow
+const greetingPrime = (rules) => {
   function isPrime() {
     const num = getRandomNum(7) + 2;
     const rightAnswer = prime(num) ? 'yes' : 'no';
@@ -19,3 +24,15 @@ export default (rules) => {
     },
   };
 };
+
+const greeting = () => {
+  console.log('Welcome to the Brain Games!');
+
+  const userName = name();
+  console.log(`Hello, ${userName}!`);
+  const gameRules = rules();
+  gameRules.setUserName(userName);
+  gameRules.reset();
+  greetingPrime(gameRules).start();
+};
+export default greeting;
