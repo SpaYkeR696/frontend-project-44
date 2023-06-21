@@ -1,7 +1,9 @@
-import { getAnswerForQuestion } from '../cli.js';
+import rules from '../index.js';
+import { name, getAnswerForQuestion } from '../cli.js';
 import getRandomNum from '../utilities/randomNum.js';
 
-export default (rules) => {
+// eslint-disable-next-line no-shadow
+const greetingCalc = (rules) => {
   const operation = ['+', '-', '*'];
 
   function getOperation() {
@@ -26,3 +28,15 @@ export default (rules) => {
     },
   };
 };
+
+const launch = () => {
+  console.log('Welcome to the Brain Games!');
+  const userName = name();
+  console.log(`Hello, ${userName}!`);
+
+  const gameRules = rules();
+  gameRules.setUserName(userName);
+  gameRules.reset();
+  greetingCalc(gameRules).start();
+};
+export default launch;
