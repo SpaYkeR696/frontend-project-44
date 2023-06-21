@@ -7,7 +7,7 @@ export default (rules) => {
     const num1 = randomNum(9);
     const num2 = randomNum(9);
     const rightAnswer = getGCD(num1, num2);
-    console.log(`Question: ${num1} ${num2}`);
+    console.log(`Question: ${num1}, ${num2}`);
     const answers = getAnswerForQuestion('Your answer: ');
 
     rules.check({ rightAnswer, answers }, next);
