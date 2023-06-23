@@ -22,7 +22,7 @@ const greetingPrime = (rules) => {
   };
 };
 
-const launch = () => {
+const run = () => {
   console.log('Welcome to the Brain Games!');
 
   const userName = name();
@@ -32,4 +32,4 @@ const launch = () => {
   gameRules.reset();
   greetingPrime(gameRules).start();
 };
-export default launch;
+export default run;

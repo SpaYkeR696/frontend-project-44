@@ -23,7 +23,7 @@ const greetingGcd = (rules) => {
   };
 };
 
-const launch = () => {
+const run = () => {
   console.log('Welcome to the Brain Games!');
   const userName = name();
   console.log(`Hello, ${userName}!`);
@@ -33,4 +33,4 @@ const launch = () => {
   gameRules.reset();
   greetingGcd(gameRules).start();
 };
-export default launch;
+export default run;
