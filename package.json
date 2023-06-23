@@ -9,13 +9,13 @@
   },
   "name": "@hexlet/code",
   "version": "1.0.0",
-  "description": "[![Actions Status](https://github.com/SpaYkeR696/frontend-project-44/workflows/hexlet-check/badge.svg)](https://github.com/SpaYkeR696/frontend-project-44/actions)",
+  "description": "[![Actions Status](https://github.com/SpaYkeR696/frontend-project-44/workflows/hexlet-check/badge.svg)](https://github.com/SpaYkeR696/frontend-project-44/actions) brain-games",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node bin/brain-games.js"
   },
-  "author": "",
+  "author": "Nikita Meschariakov",
   "license": "ISC",
   "type": "module",
   "dependencies": {
