@@ -5,14 +5,9 @@ import getRandomNum from '../utilities/randomNum.js';
 
 // eslint-disable-next-line no-shadow
 const greetingEven = (rules) => {
-    const answer = {
-        YES: 'yes',
-        NO: 'no',
-    };
-
     function next() {
         const num = getRandomNum(99);
-        const rightAnswer = num % 2 === 0 ? answer.YES : answer.NO;
+        const rightAnswer = num % 2 === 0 ? 'yes' : 'no';
         console.log(`Question: ${num}`);
         const answers = getAnswerForQuestion('Your answer:');
         rules.check({ rightAnswer, answers }, next);
