@@ -1,35 +1,16 @@
 /* eslint-disable indent */
-import rules from '../index.js';
-import { name, getAnswerForQuestion } from '../cli.js';
+import run from '../index.js';
 import getRandomNum from '../utilities/randomNum.js';
 
-// eslint-disable-next-line no-shadow
-const greetingEven = (rules) => {
-    function next() {
-        const num = getRandomNum(99);
-        const rightAnswer = num % 2 === 0 ? 'yes' : 'no';
-        console.log(`Question: ${num}`);
-        const answers = getAnswerForQuestion('Your answer:');
-        rules.check({ rightAnswer, answers }, next);
-    }
+const description = 'Answer "yes" if the number is even, otherwise answer "no".';
 
-    return {
-        start() {
-          // eslint-disable-next-line indent
-          console.log('Answer "yes" if the number is even, otherwise answer "no".');
-          next();
-        },
-      };
+function even() {
+  const num = getRandomNum(99);
+  const correctAnswer = num % 2 === 0 ? 'yes' : 'no';
+
+  return [num, correctAnswer];
+}
+
+export default () => {
+  run(description, even);
 };
-
-const run = () => {
-  console.log('Welcome to the Brain Games!');
-const userName = name();
-console.log(`Hello, ${userName}!`);
-
-const gameRules = rules();
-gameRules.setUserName(userName);
-gameRules.reset();
-greetingEven(gameRules).start();
-};
-export default run;
