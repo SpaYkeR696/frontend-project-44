@@ -1,56 +1,26 @@
-export default () => {
-  const MAX_FAIL_COUNT = 0;
-  const MIN_SUCCESS_COUNT = 3;
-  let userName = null;
-  let successCount = 0;
-  let failCount = 0;
+import readlineSync from 'readline-sync';
 
-  function reset() {
-    successCount = 0;
-    failCount = 0;
-  }
+const rounds = 3;
 
-  function finishWithLose() {
-    console.log(`Let's try again, ${userName}!`);
-    reset();
-  }
+export default (description, getQuestion) => {
+  console.log('Welcome to the Brain Games!');
+  const names = readlineSync.question('May I have your name? ');
+  console.log(`Hello, ${names}!`);
 
-  function finishWithWin() {
-    console.log(`Congratulations, ${userName}!`);
-    reset();
-  }
+  console.log(description);
 
-  function check({ rightAnswer, answers }, cb) {
-    if (answers === rightAnswer.toString()) {
+  for (let i = 0; i < rounds; i += 1) {
+    const [question, answer] = getQuestion();
+    console.log(`Question: ${question}`);
+    const playerAnswer = readlineSync.question('Your answer: ');
+
+    if (answer === playerAnswer) {
       console.log('Correct!');
-      successCount += 1;
     } else {
-      console.log(`'${answers}' is wrong answer;(. Correct answer was '${rightAnswer}'.`);
-      failCount += 1;
-    }
-
-    if (failCount > MAX_FAIL_COUNT) {
-      finishWithLose();
-    } else if (successCount >= MIN_SUCCESS_COUNT) {
-      finishWithWin();
-    } else {
-      cb();
+      console.log(`'${playerAnswer}' is wrong answer ;(. Correct answer was '${answer}'.`);
+      console.log(`Let's try again, ${names}`);
+      return;
     }
   }
-
-  return {
-    userName,
-
-    setUserName(name) {
-      userName = name;
-    },
-
-    check({ rightAnswer, answers }, cb) {
-      check({ rightAnswer, answers }, cb);
-    },
-
-    reset() {
-      reset();
-    },
-  };
+  console.log(`Congratulations, ${names}!`);
 };
