@@ -1,36 +1,18 @@
-import rules from '../index.js';
-import { name, getAnswerForQuestion } from '../cli.js';
+import run from '../index.js';
 import getGCD from '../utilities/gcd.js';
 import randomNum from '../utilities/randomNum.js';
 
-// eslint-disable-next-line no-shadow
-const greetingGcd = (rules) => {
-  function next() {
-    const num1 = randomNum(9);
-    const num2 = randomNum(9);
-    const rightAnswer = getGCD(num1, num2);
-    console.log(`Question: ${num1} ${num2}`);
-    const answers = getAnswerForQuestion('Your answer: ');
+const description = 'Find the greatest common divisor of given numbers';
 
-    rules.check({ rightAnswer, answers }, next);
-  }
+function gcd() {
+  const num1 = randomNum(9);
+  const num2 = randomNum(9);
+  const question = `${num1} ${num2}`;
+  const correctAnswer = String(getGCD(num1, num2));
 
-  return {
-    start() {
-      console.log('Find the greatest common divisor of given numbers.');
-      next();
-    },
-  };
+  return [question, correctAnswer];
+}
+
+export default () => {
+  run(description, gcd);
 };
-
-const run = () => {
-  console.log('Welcome to the Brain Games!');
-  const userName = name();
-  console.log(`Hello, ${userName}!`);
-
-  const gameRules = rules();
-  gameRules.setUserName(userName);
-  gameRules.reset();
-  greetingGcd(gameRules).start();
-};
-export default run;
