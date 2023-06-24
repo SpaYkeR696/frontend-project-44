@@ -18,7 +18,7 @@ export default (description, getQuestion) => {
       console.log('Correct!');
     } else {
       console.log(`'${playerAnswer}' is wrong answer ;(. Correct answer was '${answer}'.`);
-      console.log(`Let's try again, ${names}`);
+      console.log(`Let's try again, ${names}!`);
       return;
     }
   }
