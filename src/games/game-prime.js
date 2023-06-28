@@ -15,7 +15,7 @@ function isPrime(num) {
 }
 
 function prime() {
-  const num = getRandomNum(0, 20);
+  const num = getRandomNum(1, 20);
   const correctAnswer = isPrime(num) ? 'yes' : 'no';
 
   return [num, correctAnswer];
