@@ -1,12 +1,15 @@
-import run from '../index.js';
+import runCalc from '../index.js';
 import getRandomNum from '../utilities/randomNum.js';
 
 const description = 'What is the result of the expression?';
 
 const operation = ['+', '-', '*'];
 
-function getOperation() {
-  return operation[getRandomNum(2)];
+function getOperationSymbol(symbol) {
+  const symbolLength = symbol.length;
+  const randomIndex = getRandomNum(0, symbolLength);
+  const randomSymbol = symbol[randomIndex];
+  return randomSymbol;
 }
 
 function calculation(symbol, firstNum, secondNum) {
@@ -17,14 +20,15 @@ function calculation(symbol, firstNum, secondNum) {
       return firstNum - secondNum;
     case '*':
       return firstNum * secondNum;
-    default: return null;
+    default:
+      throw new Error(`Unknown order state: ${symbol}!`);
   }
 }
 
 function expression() {
-  const randomNumber1 = getRandomNum(99);
-  const randomNumber2 = getRandomNum(99);
-  const operations = getOperation();
+  const randomNumber1 = getRandomNum(0, 20);
+  const randomNumber2 = getRandomNum(0, 20);
+  const operations = getOperationSymbol(operation);
   const question = `${randomNumber1} ${operations} ${randomNumber2}`;
   const correctAnswer = String(calculation(operations, randomNumber1, randomNumber2));
 
@@ -32,5 +36,5 @@ function expression() {
 }
 
 export default () => {
-  run(description, expression);
+  runCalc(description, expression);
 };

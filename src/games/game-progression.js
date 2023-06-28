@@ -1,31 +1,32 @@
 /* eslint-disable no-shadow */
-import run from '../index.js';
+import runProgression from '../index.js';
 import getRandomNum from '../utilities/randomNum.js';
 
 const description = 'What number is missing in the progression?';
+const progressionLength = 10;
 
-function progression(first, base, last) {
-  return [...Array(last)].map((_, i) => first + base * i);
-}
+function arithmeticsProgression() {
+  let progressionNum = getRandomNum(0, 50);
+  const stepProgression = getRandomNum(2, 5);
+  const progression = [];
 
-function progressionByIndex(prog, index) {
-  const p = [...prog];
-  p[index] = '..';
-  return p;
+  for (let i = 0; i < progressionLength; i += 1) {
+    progression.push(progressionNum);
+    progressionNum += stepProgression;
+  }
+  return progression;
 }
 
 function progress() {
-  const first = getRandomNum(19);
-  const base = getRandomNum(5) + 1;
-  const last = getRandomNum(5) + 5;
-  const progressions = progression(first, base, last);
-  const rightAnswerIndex = getRandomNum(last - 1);
-  const correctAnswer = String(progressions[rightAnswerIndex]);
-  const question = progressionByIndex(progressions, rightAnswerIndex).join(' ');
+  const progression = arithmeticsProgression();
+  const randomIndex = getRandomNum(0, progressionLength);
+  const correctAnswer = String(progression[randomIndex]);
+  progression[randomIndex] = '..';
+  const question = progression.join(' ');
 
   return [question, correctAnswer];
 }
 
 export default () => {
-  run(description, progress);
+  runProgression(description, progress);
 };

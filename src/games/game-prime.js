@@ -1,16 +1,26 @@
-import run from '../index.js';
+import runPrime from '../index.js';
 import getRandomNum from '../utilities/randomNum.js';
-import prime from '../utilities/prime.js';
 
 const description = 'Answer "yes" if given number is prime. Otherwise answer "no"';
 
-function isPrime() {
-  const num = getRandomNum(7) + 2;
-  const correctAnswer = prime(num) ? 'yes' : 'no';
+function isPrime(num) {
+  if (num > 0) {
+    for (let i = 2; i < num; i += 1) {
+      if (num % i === 0) {
+        return false;
+      }
+    }
+  }
+  return true;
+}
+
+function prime() {
+  const num = getRandomNum(0, 20);
+  const correctAnswer = isPrime(num) ? 'yes' : 'no';
 
   return [num, correctAnswer];
 }
 
 export default () => {
-  run(description, isPrime);
+  runPrime(description, prime);
 };
