@@ -35,7 +35,7 @@ $ brain-even
 
 #### Пример игры
 
-![even](/markdown/even.jpg)
+![even](/screenshots/even.jpg)
 
 ## Игра: "Калькулятор"
 
@@ -49,7 +49,7 @@ $ brain-calc
 
 #### Пример игры
 
-![calc](/markdown/calc.jpg)
+![calc](/screenshots/calc.jpg)
 
 ## Игра: "НОД"
 
@@ -63,7 +63,7 @@ $ brain-gcd
 
 #### Пример игры
 
-![gcd](/markdown/gcd.jpg)
+![gcd](/screenshots/gcd.jpg)
 
 ## Игра: "Арифметическая прогрессия"
 
@@ -77,7 +77,7 @@ $ brain-progression
 
 #### Пример игры
 
-![progression](/markdown/progression.jpg)
+![progression](/screenshots/progression.jpg)
 
 ## Игра: "Простое ли число?"
 
@@ -91,4 +91,4 @@ $ brain-prime
 
 #### Пример игры
 
-![prime](/markdown/prime.jpg)
+![prime](/screenshots/prime.jpg)
