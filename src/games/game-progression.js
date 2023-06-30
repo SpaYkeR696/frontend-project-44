@@ -17,7 +17,7 @@ function arithmeticsProgression() {
   return progression;
 }
 
-function progress() {
+function progression() {
   const progression = arithmeticsProgression();
   const randomIndex = getRandomNum(0, progressionLength);
   const correctAnswer = String(progression[randomIndex]);
@@ -28,5 +28,5 @@ function progress() {
 }
 
 export default () => {
-  runProgression(description, progress);
+  runProgression(description, progression);
 };

@@ -28,7 +28,7 @@ function calculation(symbol, firstNum, secondNum) {
   }
 }
 
-function expression() {
+function calc() {
   const randomNumber1 = getRandomNum(0, 10);
   const randomNumber2 = getRandomNum(0, 10);
   const operation = getSymbol(operations);
@@ -39,5 +39,5 @@ function expression() {
 }
 
 export default () => {
-  runCalc(description, expression);
+  runCalc(description, calc);
 };

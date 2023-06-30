@@ -15,10 +15,10 @@ function isPrime(num) {
 }
 
 function prime() {
-  const num = getRandomNum(1, 20);
-  const correctAnswer = isPrime(num) ? 'yes' : 'no';
+  const question = getRandomNum(1, 20);
+  const correctAnswer = isPrime(question) ? 'yes' : 'no';
 
-  return [num, correctAnswer];
+  return [question, correctAnswer];
 }
 
 export default () => {
